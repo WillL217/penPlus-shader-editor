@@ -1,68 +1,64 @@
 penPlus.setupMonacoTheme = () => {
   monaco.languages.register({ id: "glsl" });
   const mainTypes = [
-    [/(\/\/.*)/, "comment"],
+    [/\/\/.*/, "comment"],
     [/\/\*/, 'comment', '@comment'],
-    
-    [/((?:^|\W)float(?:$|\W))+/, "variable"],
-    [/((?:^|\W)int(?:$|\W))+/, "int"],
+    [/float\b/, "variable"],
+    [/int\b/, "int"],
 
-    [/((?:^|\W)vec2(?:$|\W))+/, "vec-two"],
-    [/((?:^|\W)vec3(?:$|\W))+/, "vec-three"],
-    [/((?:^|\W)vec4(?:$|\W))+/, "vec-four"],
+    [/vec2\b/, "vec-two"],
+    [/vec3\b/, "vec-three"],
+    [/vec4\b/, "vec-four"],
 
-    [/((?:^|\W)mat2(?:$|\W))+/, "matrix"],
-    [/((?:^|\W)mat3(?:$|\W))+/, "matrix"],
-    [/((?:^|\W)mat4(?:$|\W))+/, "matrix"],
+    [/mat2\b/, "matrix"],
+    [/mat3\b/, "matrix"],
+    [/mat4\b/, "matrix"],
 
-    [/((?:^|\W)lowp(?:$|\W))+/, "precision"],
-    [/((?:^|\W)mediump(?:$|\W))+/, "precision"],
-    [/((?:^|\W)highp(?:$|\W))+/, "precision"],
+    [/lowp\b/, "precision"],
+    [/mediump\b/, "precision"],
+    [/highp\b/, "precision"],
   ];
   const inFunctions = [
     ...mainTypes,
-    [/([\{])/, "controls", "@controls"],
+    [/\{/, "controls", "@controls"],
 
-    [/(>=+)/, "operator"],
-    [/(<=+)/, "operator"],
-    [/(>>+)/, "operator"],
-    [/(<<+)/, "operator"],
-    [/(<+)/, "operator"],
-    [/(>+)/, "operator"],
-    [/(==+)/, "operator"],
-    [/(!=+)/, "operator"],
-    [/(=+)/, "operator"],
+    [/>=/, "operator"],
+    [/<=/, "operator"],
+    [/>>/, "operator"],
+    [/<</, "operator"],
+    [/</, "operator"],
+    [/>/, "operator"],
+    [/==/, "operator"],
+    [/\!=/, "operator"],
+    [/=/, "operator"],
 
-    [/(\+=+)/, "operator"],
-    [/(\/=+)/, "operator"],
-    [/(\-=+)/, "operator"],
-    [/(\*=+)/, "operator"],
+    [/\+=/, "operator"],
+    [/\/=/, "operator"],
+    [/\-=/, "operator"],
+    [/\*=/, "operator"],
 
-    [/(\/+)/, "operator"],
-    [/(\*+)/, "operator"],
-    [/(\++)/, "operator"],
-    [/(\-+)/, "operator"],
+    [/\//, "operator"],
+    [/\*/, "operator"],
+    [/\+/, "operator"],
+    [/\-/, "operator"],
 
-    [/(\|\|+)/, "operator"],
-    [/(\&\&+)/, "operator"],
-    [/(\^\^+)/, "operator"],
+    [/\|/, "operator"],
+    [/\&/, "operator"],
+    [/\^/, "operator"],
 
-    [/(\|+)/, "operator"],
-    [/(\&+)/, "operator"],
-    [/(\^+)/, "operator"],
-
-    [/((?:^|\W)return(?:$|\W))/, "my-blocks"],
-    [/((?:^|\W)discard(?:$|\W))/, "my-blocks"],
-    [/((?:^|\W)if(?:$|\W))/, "controls"],
-    [/((?:^|\W)else(?:$|\W))/, "controls"],
-    [/((?:^|\W)switch(?:$|\W))/, "controls"],
-    [/((?:^|\W)case(?:$|\W))/, "controls"],
-    [/((?:^|\W)for(?:$|\W))/, "controls"],
-    [/((?:^|\W)while(?:$|\W))/, "controls"],
-    [/((?:^|\W)do(?:$|\W))/, "controls"],
-    [/((?:^|\W)break(?:$|\W))/, "controls"],
-    [/((?:^|\W)continue(?:$|\W))/, "controls"],
-    [/\(/, "my-blocks"],
+    [/return\b/, "my-blocks"],
+    [/discard\b/, "my-blocks"],
+    [/if\b/, "controls"],
+    [/else\b/, "controls"],
+    [/switch\b/, "controls"],
+    [/case\b/, "controls"],
+    [/for\b/, "controls"],
+    [/while\b/, "controls"],
+    [/do\b/, "controls"],
+    [/break\b/, "controls"],
+    [/continue\b/, "controls"],
+    [/\w* *\(/, "my-blocks"],
+    [/\w+/], // prevent words with types in them from being detected
     [/\)/, "my-blocks"],
   ]
   monaco.languages.setLanguageConfiguration("glsl", {
@@ -85,33 +81,35 @@ penPlus.setupMonacoTheme = () => {
         [/layout.*\(.*location.*=.*\d\)/,"operator"],
         ...mainTypes,
 
-        [/(sampler2D+)/, "texture"],
-        [/(sampler3D+)/, "texture3d"],
-        [/(samplerCube+)/, "cubemap"],
+        [/sampler2D/, "texture"],
+        [/sampler3D/, "texture3d"],
+        [/samplerCube/, "cubemap"],
 
-        [/(\d+\.\d+)/, "operator"],
-        [/(\d+\.)/, "operator"],
-        [/(\.\d+)/, "operator"],
-        [/(\d+)/, "operator"],
+        [/\d+\.\d+/, "operator"],
+        [/\d+\./, "operator"],
+        [/\.\d+/, "operator"],
+        [/\d+/, "operator"],
 
-        [/(true+)/, "operator"],
-        [/(false+)/, "operator"],
-
-        ...mainTypes,
-
-        [/(varying+)/, "precision"],
-        [/(attribute+)/, "precision"],
-        [/(uniform+)/, "precision"],
+        [/true/, "operator"],
+        [/false/, "operator"],
+        
 
 
-        [/([\w_]*\s*)\(/, "my-blocks"],
+        [/varying/, "precision"],
+        [/attribute/, "precision"],
+        [/uniform/, "precision"],
+
+
+        [/[\w_]*\s*\(/, "my-blocks"],
         [/\)/, "my-blocks"],
         [/void/, "my-blocks"],
         [/struct/, "struct", "@struct"],
+        [/\w+/], // prevent words with types in them from being detected
         [/{/,"my-blocks", "@myblock"],
       ],
       struct: [
         ...mainTypes,
+        [/\w+/], // prevent words with types in them from being detected
 
         [/{/, 'struct'],
         [/}/, 'struct', '@pop'],
