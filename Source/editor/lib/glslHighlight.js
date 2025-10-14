@@ -20,6 +20,7 @@ penPlus.setupMonacoTheme = () => {
     [/((?:^|\W)highp(?:$|\W))+/, "precision"],
   ];
   const inFunctions = [
+    ...mainTypes,
     [/([\{])/, "controls", "@controls"],
 
     [/(>=+)/, "operator"],
@@ -49,7 +50,6 @@ penPlus.setupMonacoTheme = () => {
     [/(\|+)/, "operator"],
     [/(\&+)/, "operator"],
     [/(\^+)/, "operator"],
-    ...mainTypes,
 
     [/((?:^|\W)return(?:$|\W))/, "my-blocks"],
     [/((?:^|\W)discard(?:$|\W))/, "my-blocks"],
