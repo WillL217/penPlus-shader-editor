@@ -17,6 +17,11 @@ penPlus.setupMonacoTheme = () => {
     [/lowp\b/, "precision"],
     [/mediump\b/, "precision"],
     [/highp\b/, "precision"],
+    
+    [/\d+\.\d+/, "operator"],
+    [/\d+\./, "operator"],
+    [/\.\d+/, "operator"],
+    [/\d+/, "operator"],
   ];
   const inFunctions = [
     ...mainTypes,
@@ -85,15 +90,8 @@ penPlus.setupMonacoTheme = () => {
         [/sampler3D/, "texture3d"],
         [/samplerCube/, "cubemap"],
 
-        [/\d+\.\d+/, "operator"],
-        [/\d+\./, "operator"],
-        [/\.\d+/, "operator"],
-        [/\d+/, "operator"],
-
         [/true/, "operator"],
         [/false/, "operator"],
-        
-
 
         [/varying/, "precision"],
         [/attribute/, "precision"],
