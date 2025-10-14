@@ -46,10 +46,10 @@
   window.addEventListener("message", (event) => {
     //Handle
     //Make sure monaco doesn't interfere
-    if (event.data.vscodeScheduleAsyncWork) return;
+    if (event.data.vscodeScheduleAsyncWork || event.data.source==="react-devtools-content-script") return;
 
     if (!event.data.type) {
-      console.error("No event specified");
+      console.error("No event specified", event.data);
     }
 
     switch (event.data.type) {
