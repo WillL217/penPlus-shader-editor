@@ -88,6 +88,8 @@ function onAllAddonsLoaded() {
 
   workspace.addChangeListener(updateGLSL);
 
+  updateGLSL({ type: Blockly.Events.BLOCK_CHANGE, isManualCompile: true });
+  
   //workspace.registerButtonCallback("createVariable", (button) => {});
 
   // The plugin must be initialized before it has any effect.
