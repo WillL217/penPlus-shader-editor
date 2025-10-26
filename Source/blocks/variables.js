@@ -787,7 +787,7 @@
       };
       
       if ((penPlus.is300Version && penPlus.experimental)) {
-        variableTypeChangers.texture3D = document.getElementById("texture3D");
+        variableTypeChangers.texture3D = document.getElementById("texture3d");
         variableTypeChangers.texture3D.onclick = () => {
           cycleVariable("texture3D");
           setScopeVisibilities(false, true, false, false, false, false);
