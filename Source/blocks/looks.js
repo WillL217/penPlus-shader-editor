@@ -271,7 +271,7 @@
               },
             ],
           },
-          {
+        ].concat(penPlus.experimental ? [{
             opcode: "sample_3dTexture",
             type: "reporter",
             text: "color at %1 of 3D texture %2",
@@ -291,8 +291,7 @@
                 name: "TEXTURE",
               },
             ],
-          },
-        ],
+          }] : []),
       };
     }
 
