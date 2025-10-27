@@ -12,7 +12,7 @@
 
   penPlus.IFRAME_API.closeButton.onclick = () => {
     const varModal = penPlus.createModal(`
-      <div id="variableModal" class="Modal" style="--ModalWidth:40%; --ModalHeight:auto; aspect-ratio:4/2;background-color: var(--EditorTheme_Theme_1);border-radius:1rem; filter: drop-shadow(0px 0px 5px white);">
+      <div id="variableModal" class="Modal" style="--ModalWidth:650px; --ModalHeight:auto; aspect-ratio:4/2;background-color: var(--EditorTheme_Theme_1);border-radius:1rem; filter: drop-shadow(0px 0px 5px white);">
         <div class="noSelect" style="background-color: var(--EditorTheme_Color_1); width:100%; height:48px; position:absolute;  color:var(--EditorTheme_Text_3); text-align: center; justify-content: center; align-items: center;font-size: 32px;">
           Close without saving?
         </div>
