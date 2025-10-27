@@ -859,7 +859,7 @@
 
       const doesVariableExist = (variablename) => {
         const variables = workspace.getAllVariables();
-        if (!variablename.match(/^[a-zA-Z_]+$/)) return ["stringInvalid"];
+        if (!variablename.match(/^(\w[\w\d]*)$/)) return ["stringInvalid"];
         for (let varIndex = 0; varIndex < variables.length; varIndex++) {
           const curVar = variables[varIndex];
           if (curVar.name == variablename) {
