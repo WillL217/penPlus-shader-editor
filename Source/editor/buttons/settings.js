@@ -63,7 +63,7 @@
 
   settingsButton.onclick = () => {
     const varModal = penPlus.createModal(`
-    <div id="variableModal" class="Modal" style="--ModalWidth:40%; --ModalHeight:auto; aspect-ratio:3/2;">
+    <div id="variableModal" class="Modal" style="--ModalWidth:650px; --ModalHeight:auto; aspect-ratio:3/2;">
       <div class="ModalHeader">
         <div class="ModalHeaderFH">
           Options

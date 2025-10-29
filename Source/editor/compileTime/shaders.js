@@ -803,10 +803,12 @@ function genProgram() {
             let divElement = document.createElement("div");
             divElement.style.color = "var(--EditorTheme_Text_1)";
             divElement.style.position = "relative";
-            divElement.style.maxWidth = "50%";
             divElement.style.display = "flex";
 
-            divElement.innerHTML = `${attribute.name}:`;
+            const textDiv = document.createElement("div");
+            textDiv.style.maxWidth = "50%";
+            textDiv.innerHTML = `${attribute.name}:`;  
+            divElement.appendChild(textDiv);
             divElement.appendChild(getTypedInput(attribute.type, attribute.name));
 
             penPlus.shaderVars.appendChild(divElement);
